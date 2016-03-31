@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
+import javax.xml.stream.XMLStreamException;
 
 import com.greatwideweb.vo.Player;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,17 +13,22 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class PlayerDAOImpl implements PlayerDAO {
 
-	private static final String LIST_PLAYERS_SQL = "select player_id, first_name, last_name, position from players";
+	public static final String LIST_PLAYERS_SQL = "LIST_PLAYERS_SQL";
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
+	private final String listPlayersSQL;
+	
+	public PlayerDAOImpl() throws XMLStreamException {
+		listPlayersSQL= SQLProvider.getSQL(LIST_PLAYERS_SQL);
+	}
 	
 	public void setDataSource(DataSource dataSource) {
-	      this.dataSource = dataSource;
-	      this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-	   }
+      this.dataSource = dataSource;
+	  this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
 	   
 	public List<Player> listPlayers() {
-		List<Player> players = jdbcTemplateObject.query(LIST_PLAYERS_SQL, new ListPlayersMapper());
+		List<Player> players = jdbcTemplateObject.query(listPlayersSQL, new ListPlayersMapper());
 		return players;
 	}
 	

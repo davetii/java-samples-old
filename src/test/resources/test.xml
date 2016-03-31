@@ -1,0 +1,16 @@
+<entries>
+	<entry name="SQL_0">
+	Entry0
+	</entry>
+	<entry name="SQL_1">
+	I am the text in entry 1
+	</entry>
+	<entry name="SQL_2">
+	I am the text in entry 2
+	and I am a breakline.. interested in seeing 
+	how this works
+	</entry>
+	<entry name="SQL_3">
+	select * from whereever table
+	</entry>
+</entries>

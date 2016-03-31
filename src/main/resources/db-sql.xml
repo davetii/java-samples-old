@@ -1,0 +1,5 @@
+<entries>
+	<entry name="LIST_PLAYERS_SQL">
+	select player_id, first_name, last_name, position from players
+	</entry>
+</entries>
