@@ -6,4 +6,6 @@ Todo
 * Add DB Creation scripts
 * Add Hibernate example
 * Add rest Service
+* Add Mockito Mocks
+* Add Support for HSQL
 
