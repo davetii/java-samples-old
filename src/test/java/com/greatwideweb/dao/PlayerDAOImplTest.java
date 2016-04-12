@@ -25,7 +25,7 @@ public class PlayerDAOImplTest {
 	public void ensureDatabaseReturnsRows() {
 		List<Player> players = dao.listPlayers();
 		Assert.assertNotNull(players);
-		Assert.assertEquals(2, players.size());
+		Assert.assertNotEquals(0, players.size());
 	}
 	
 	public void after() {
