@@ -18,12 +18,12 @@ public class PlayerDAOImplTest {
 	@Before
 	public void setup() {
 		ctx = new ClassPathXmlApplicationContext("beans.xml");
-		dao = (PlayerDAO) ctx.getBean("PlayerDAOImpl");
+		dao = (PlayerDAO) ctx.getBean("playerdaoimpl");
 	}
 	
 	@Test
 	public void ensureDatabaseReturnsRows() {
-		List<Player> players = dao.listPlayers();
+		List<Player> players = dao.listAllPlayers();
 		Assert.assertNotNull(players);
 		Assert.assertNotEquals(0, players.size());
 	}

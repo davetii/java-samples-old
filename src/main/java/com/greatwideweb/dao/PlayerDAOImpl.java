@@ -27,7 +27,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	  this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	   
-	public List<Player> listPlayers() {
+	public List<Player> listAllPlayers() {
 		List<Player> players = jdbcTemplateObject.query(listPlayersSQL, new ListPlayersMapper());
 		return players;
 	}

@@ -18,7 +18,15 @@
 		<property name="password" value="${user.password}" />
 	</bean>
 	
-	<bean id="PlayerDAOImpl" class="com.greatwideweb.dao.PlayerDAOImpl">
+	<bean id="playerdaoimpl" class="com.greatwideweb.dao.PlayerDAOImpl">
       <property name="dataSource"  ref="dataSource" />    
+   </bean>
+   
+   <bean id="playerservice" class="com.greatwideweb.service.PlayerService">
+   	<property name="dao"  ref="playerdaoimpl" />
+   </bean>
+   
+   <bean id="playerendpoint" class=" com.greatwideweb.endpoints.PlayerEndPoint">
+   	<property name="playerService"  ref="playerservice" />
    </bean>
 </beans>
