@@ -14,13 +14,15 @@ public class RawMySQLConnection {
 		   try
 		   {
 		      Class.forName("com.mysql.jdbc.Driver");
-		      conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/sandbox?user=sandbox&password=sandbox&database=sandbox");
+		      conn = DriverManager.getConnection("jdbc:mysql://docker-machine/test-db?user=root&password=turner&database=test-db");
 		      stmt = conn.createStatement();
 		      rs = stmt.executeQuery("select now()");
-		      while(rs.next())
-		    	  System.out.println(rs.getString(1));
+		      while(rs.next()) {
+				  System.out.println("the time is :" + rs.getString(1));
+			  }
+
 		   }catch(Exception e){
-		      throw e;
+		   	throw e;
 		   }finally{
 		     rs.close();
 		     stmt.close();
